@@ -1,0 +1,14 @@
+{
+    "users": [
+        {
+            "user": "He-man",
+            "password": "castillo",
+            "preference": "dark"
+        },
+        {
+            "user": "She-ra",
+            "password": "pegaso",
+            "preference": "light"
+        }
+    ]
+}
