@@ -3,12 +3,14 @@
         {
             "user": "He-man",
             "password": "castillo",
-            "preference": "dark"
+            "preference": "dark",
+            "favProd": []
         },
         {
             "user": "She-ra",
             "password": "pegaso",
-            "preference": "light"
+            "preference": "light",
+            "favProd": []
         }
     ]
 }
