@@ -1,7 +1,8 @@
+import ProductInterface from "./ProductInteface";
 export default interface ProductsStateInterface {
     skip: number;
     productsPerPage: number;
-    products: ProductType[];
+    products: ProductInterface[];
     total: number;
     loading: boolean
 }
