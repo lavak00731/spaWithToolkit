@@ -2,33 +2,41 @@ import { NavLink as BaseNavLink } from 'react-router';
 import styled from 'styled-components';
 
 const NavElement = styled.nav`
-  position: relative;
+  position: absolute; 
+  top: 5.5rem;
+  left: 0;
+  width: 100%;
 `
-
 const NavList = styled.ul`
   color: #FFF;
   display: flex;
-  flex-direction: column;
-  position: absolute; 
-  top: 1rem;
-  left: -2rem;
+  flex-direction: column;  
   background: rgba(0, 0, 0, 0.8);
-  width: calc( 100% + 4rem );
+  width: 100%;
   list-style: none;
   padding: 1.5rem 2rem;
 `
+
+const NavListItem = styled.li`
+  margin: 0 0 0.5rem;
+  &:last-of-type {
+    margin: 0;
+  }
+`
+
 const NavLink = styled(BaseNavLink)`
   color: #FFF;
 `
+
 export const Nav = () => {
 
   return (
-    <NavElement>
+    <NavElement>      
       <NavList>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/cart">Cart</NavLink></li>
-        <li><NavLink to="/register">Register</NavLink></li>
-        <li><NavLink to="/login">Login</NavLink></li>
+        <NavListItem><NavLink to="/">Home</NavLink></NavListItem>
+        <NavListItem><NavLink to="/cart">Cart</NavLink></NavListItem>
+        <NavListItem><NavLink to="/register">Register</NavLink></NavListItem>
+        <NavListItem><NavLink to="/login">Login</NavLink></NavListItem>
       </NavList>
     </NavElement>
   )
