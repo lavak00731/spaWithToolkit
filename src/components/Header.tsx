@@ -32,7 +32,7 @@ const ShowHideBtn = styled.button`
   &[aria-expanded="true"] + nav {
     display: block;
   }
-  @media ${device.lg} {
+  @media ${device.md} {
     display: none;
   }
 `
@@ -41,7 +41,7 @@ export const Header = () => {
     <HeaderElem>
         <MainLink href="/">Site Name</MainLink>
         <ShowHideBtn aria-expanded="false" onClick={(e)=>{showHideFunc(e)}}>Menu</ShowHideBtn>
-        <Nav/>
+        <Nav isLogged={false} userName={null}/>
     </HeaderElem>
   )
 }

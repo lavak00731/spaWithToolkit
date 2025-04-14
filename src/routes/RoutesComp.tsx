@@ -7,6 +7,8 @@ import { Payment } from "../views/Payment";
 import { Favorites } from "../views/Favorites";
 import { User } from "../views/User";
 import { PrivateRoutes } from "../views/PrivateRoutes";
+import { Login } from "../views/Login";
+import { Register } from "../views/Register"
 
 export const RoutesComp = () => {
   return (
@@ -14,12 +16,14 @@ export const RoutesComp = () => {
       <Route element={<ProductsLayout />}>
         <Route index path="/" element={<Products />} />
         <Route path="product:id" element={<ProductPage />} />
-      </Route>
-      <Route element={<PrivateRoutes/>}>
         <Route path="/cart" element={<Cart/>}/>
+        <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<Register/>} />
+      </Route>
+      <Route element={<PrivateRoutes/>}>        
         <Route path="/payment" element={<Payment/>}/>
         <Route path="/favorites" element={<Favorites/>}/>
-        <Route path="/user" element={<User/>}/>
+        <Route path="/user" element={<User/>}/>        
       </Route>      
     </Routes>
   )
