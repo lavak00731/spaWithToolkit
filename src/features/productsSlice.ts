@@ -1,9 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import ProductType from "../interfaces/ProductType";
-
-
+import ProductInterface from "../interfaces/ProductInteface";
+import ProductsStateInterface from "../interfaces/ProductStateInterface";
   
-const initialState: ProductsState = {
+const initialState: ProductsStateInterface = {
     skip: 0,
     productsPerPage: 10,
     products: [],
@@ -24,7 +23,7 @@ const productsSlice = createSlice({
       getTotal: (state, action: PayloadAction<number>) => {
         state.total = action.payload;      
       },
-      getProducts: (state, action: PayloadAction<ProductType[]>) => {
+      getProducts: (state, action: PayloadAction<ProductInterface[]>) => {
         state.products = action.payload
       },
     },
