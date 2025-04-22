@@ -1,11 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import ProductInterface from "../interfaces/ProductInteface";
 import ProductsStateInterface from "../interfaces/ProductStateInterface";
+
+
   
 const initialState: ProductsStateInterface = {
     skip: 0,
     productsPerPage: 10,
-    products: [],
+    products:{},
     total: 0,
     loading: false
 };
