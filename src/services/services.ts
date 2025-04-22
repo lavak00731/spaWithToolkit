@@ -4,7 +4,6 @@ export const getProducts = async (productsPerPage:number, skip:number, signal: A
         if(response.ok) {
             const rawResponse = await response;
             const list = await rawResponse.json();
-            console.log(list)
             return list;
         }     
     } catch (error) {

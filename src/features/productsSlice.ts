@@ -25,7 +25,7 @@ const productsSlice = createSlice({
       getTotal: (state, action: PayloadAction<number>) => {
         state.total = action.payload;      
       },
-      getProducts: (state, action: PayloadAction<ProductInterface[]>) => {
+      prods: (state, action: PayloadAction<{[key:number]:ProductInterface[]}>) => {
         state.products = action.payload
       },
     },
