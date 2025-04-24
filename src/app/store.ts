@@ -3,8 +3,9 @@ import productsSlice from './../features/productsSlice';
 
 const store = configureStore({
     reducer: {
-      products: productsSlice
+      products: productsSlice,       
     },
+    devTools: true
   });
 
   export type RootState = ReturnType<typeof store.getState>
