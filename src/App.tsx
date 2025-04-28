@@ -6,6 +6,7 @@ import { getNewProducts } from './features/productsSlice.ts';
 import { useEffect } from 'react';
 function App() {
   const skip = useAppSelector((store) => store.products.skip);
+  const products = useAppSelector((store) => store.products.products)
   const prodPerPage = useAppSelector((store) => store.products.productsPerPage);
   
   const dispatch = useAppDispatch();
@@ -18,7 +19,11 @@ function App() {
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
-    fetchProds(prodPerPage, skip, signal)
+    console.log(!products[skip])
+    if(!products[skip]) {
+      fetchProds(prodPerPage, skip, signal)
+    }
+    
     return () => {
       controller.abort();
     }
