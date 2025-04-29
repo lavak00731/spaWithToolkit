@@ -5,7 +5,7 @@ import { Footer } from "../components/Footer";
 export const ProductsLayout = () => {
   return (
     <>
-      <Header/>
+      <Header/>      
       <Outlet/>
       <Footer/>
     </>

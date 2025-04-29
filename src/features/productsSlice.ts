@@ -28,7 +28,10 @@ const productsSlice = createSlice({
       getNewProducts: (state, action: PayloadAction<{[key:number]:ProductInterface[]}>) => {
         state.products = action.payload
       },
+      loadingSwitch: (state, action: PayloadAction<boolean>) => {
+        state.loading = action.payload
+      }
     },
 });
-export const { nexPage, previousPage, getTotal, getNewProducts} = productsSlice.actions;
+export const { nexPage, previousPage, getTotal, getNewProducts, loadingSwitch} = productsSlice.actions;
 export default productsSlice.reducer;
