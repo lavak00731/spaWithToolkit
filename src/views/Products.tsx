@@ -43,7 +43,7 @@ export const Products = () => {
   const products = useAppSelector((store) => store.products.products);
   const loading = useAppSelector((store) => store.products.loading)
   const skip = useAppSelector((store) => store.products.skip);
-  
+  console.log(products)
   useEffect(() => {
     document.title = "Products";  
     return () => {       

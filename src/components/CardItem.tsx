@@ -1,6 +1,7 @@
 import ProductInterface from "../interfaces/ProductInteface";
 import styled from "styled-components";
 import VisuallyHidden from "./VisuallyHidden";
+import { Rating } from "./Rating";
 
 const CardWrapper = styled.div`
     padding: 1rem;
@@ -53,13 +54,11 @@ const CategoryWrapper = styled.span`
 const DiscountContainer = styled.span`
     color: #FFF;
     background: #0B6623;
-    padding: 1rem;
+    padding: 0.5rem;
     font-family: Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua, Georgia, serif;
     font-size: 1.2rem;
     font-weight: 700;
 `
-
-
 
 const PriceElem = styled.p`
     font-family: Helvetica, Arial, sans-serif;
@@ -78,7 +77,8 @@ export const CardItem = ({thumbnail, title, description, brand, category, discou
         <PriceElem>
             Price ${price} {discountPercentage > 0 && <DiscountContainer> <VisuallyHidden>Discount</VisuallyHidden> - { discountPercentage }%</DiscountContainer> }
         </PriceElem>
-        <BrandName>Brand <strong>{brand}</strong></BrandName>        
+        <BrandName>Brand <strong>{brand}</strong></BrandName>     
+        <Rating ratingRates={rating} />
         <DescWrap>{description}</DescWrap>
     </CardWrapper>
   )
