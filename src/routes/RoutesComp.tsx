@@ -15,7 +15,7 @@ export const RoutesComp = () => {
     <Routes>
       <Route element={<ProductsLayout />}>
         <Route index path="/" element={<Products />} />
-        <Route path="product:id" element={<ProductPage />} />
+        <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />

@@ -2,6 +2,7 @@ import ProductInterface from "../interfaces/ProductInteface";
 import styled from "styled-components";
 import VisuallyHidden from "./VisuallyHidden";
 import { Rating } from "./Rating";
+import { Link } from "react-router";
 
 const CardWrapper = styled.div`
     padding: 1rem;
@@ -23,6 +24,7 @@ const TitleH2 = styled.h2`
     font-family: Helvetica, Arial, sans-serif;
     font-size: clamp(2rem, 2vw, 2.5rem);
     line-height: 2.4rem;
+    margin-bottom: 1rem;
 `
 const BrandName = styled.p`
     font-family: Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua, Georgia, serif;
@@ -67,19 +69,34 @@ const PriceElem = styled.p`
     font-weight: 600;
 `
 
-export const CardItem = ({thumbnail, title, description, brand, category, discountPercentage, price, rating}: ProductInterface) => {
+const LinkToProduct = styled(Link)`
+    color:  #276cdf;
+    text-decoration: underlined;
+`
+const AddToCartBtn = styled.button`    
+    font-family: Helvetica, Arial, sans-serif;
+    padding: 1rem;
+    font-size: 1rem;
+    line-height: 1.15rem;
+    border-radius: 6px;
+    color: #FFF;
+    background: #276cdf;
+    border: 2px solid #2b59a7
+`
+export const CardItem = ({id, thumbnail, title, description, brand, category, discountPercentage, price, rating}: ProductInterface) => {
 
   return (
     <CardWrapper>
         <CategoryWrapper><VisuallyHidden>category</VisuallyHidden>{category}</CategoryWrapper>        
         <Image src={thumbnail} />
-        <TitleH2>{title}</TitleH2>
+        <TitleH2><LinkToProduct to={'/product/'+id.toString()}>{title}</LinkToProduct></TitleH2>
         <PriceElem>
             Price ${price} {discountPercentage > 0 && <DiscountContainer> <VisuallyHidden>Discount</VisuallyHidden> - { discountPercentage }%</DiscountContainer> }
         </PriceElem>
         <BrandName>Brand <strong>{brand}</strong></BrandName>     
         <Rating ratingRates={rating} />
         <DescWrap>{description}</DescWrap>
+        <AddToCartBtn>Add to the Cart <VisuallyHidden>{title}</VisuallyHidden></AddToCartBtn>
     </CardWrapper>
   )
 }

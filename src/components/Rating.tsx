@@ -11,7 +11,6 @@ const StarWrapper = styled.span`
     }
 `
 export const Rating = ({ratingRates}: {ratingRates:number}) => {
-    console.log(ratingRates)
     const roundedRating = Math.round(ratingRates);
     const stars = () =>{
         switch (roundedRating) {
