@@ -55,7 +55,7 @@ interface NavProps {
 export const Nav = ({ isLogged, userName }: NavProps) => {
   if(!isLogged) {
     return (
-      <NavElement>      
+      <NavElement aria-label="Main Nav">      
         <NavList>
           <NavListItem><NavLink to="/">Home</NavLink></NavListItem>
           <NavListItem><NavLink to="/cart">Cart</NavLink></NavListItem>
@@ -65,7 +65,7 @@ export const Nav = ({ isLogged, userName }: NavProps) => {
       </NavElement>
     )
   } 
-  <NavElement>      
+  <NavElement aria-label="Main Nav">      
     <NavList>
       <NavListItem><NavLink to="/">Home</NavLink></NavListItem>
       <NavListItem><NavLink to="/cart">Cart</NavLink></NavListItem>
