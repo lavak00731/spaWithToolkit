@@ -1,4 +1,4 @@
-import { render, screen, within } from "@testing-library/react";
+import { render, screen} from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 import '@testing-library/jest-dom';
 import { Nav } from "../components/Nav";
@@ -14,16 +14,26 @@ describe('All Nav tests', ()=>{
         );
         const nav = screen.getByLabelText('Main Nav');
         expect(nav).toBeInTheDocument();
-    })
-    test('if Nav with user no logged rendered user link', () => {
+    });
+    test('if Nav with user no logged must render register and login', () => {
         render(
             <BrowserRouter>
                 <Nav isLogged={false} userName={null}/>
             </BrowserRouter>
 
         );
-        const nav = screen.getByLabelText('Main Nav');
-        //const loggedLink = within(nav).get
-        expect(nav).toBeInTheDocument();
-    })
+        const register = screen.getByText('Register');
+        const login = screen.getByText('Login');
+        expect(register && login).toBeInTheDocument();
+    });
+    test('if Nav with user no logged must not render favorites', () => {
+        render(
+            <BrowserRouter>
+                <Nav isLogged={false} userName={null}/>
+            </BrowserRouter>
+
+        );
+        const favorites = screen.queryByText('Favorites');
+        expect(favorites).not.toBeInTheDocument();
+    });
 })
