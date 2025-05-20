@@ -61,7 +61,7 @@ export const Products = () => {
   return (
     <MainElem>
       <MainTitle>Products</MainTitle>
-      <ProductList>
+      <ProductList data-testid="product-list">
         {
           (products[skip] !== undefined && products[skip].length > 0) ? products[skip].map((prod) => (
             <li key={prod.id}>
