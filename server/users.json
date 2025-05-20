@@ -1,0 +1,16 @@
+{
+    "users": [
+        {
+            "id": "1",
+            "username": "lavak00731",
+            "name": "Ezequiel Lavaca",
+            "email": "eolavaca@gmail.com",
+            "password": "RAmbo3107",
+            "favorites": [],
+            "sitepref": {},
+            "address": null,
+            "invoiceaddress": null,
+            "zipcode": null
+        }
+    ]
+}
