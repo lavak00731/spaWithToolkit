@@ -10,7 +10,8 @@
             "sitepref": {},
             "address": null,
             "invoiceaddress": null,
-            "zipcode": null
+            "zipcode": null,
+            "telephone": null
         }
     ]
 }
