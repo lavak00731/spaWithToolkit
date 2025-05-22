@@ -1,17 +1,30 @@
 {
-    "users": [
-        {
-            "id": "1",
-            "username": "lavak00731",
-            "name": "Ezequiel Lavaca",
-            "email": "eolavaca@gmail.com",
-            "password": "RAmbo3107",
-            "favorites": [],
-            "sitepref": {},
-            "address": null,
-            "invoiceaddress": null,
-            "zipcode": null,
-            "telephone": null
-        }
-    ]
+  "users": [
+    {
+      "id": "1",
+      "username": "lavak00731",
+      "name": "Ezequiel Lavaca",
+      "email": "eolavaca@gmail.com",
+      "password": "RAmbo3107",
+      "favorites": [],
+      "sitepref": {},
+      "address": null,
+      "invoiceaddress": null,
+      "zipcode": null,
+      "telephone": null
+    },
+    {
+      "id": "2",
+      "username": "he-man",
+      "name": "Principe Adams",
+      "email": "heman@greyskull.com",
+      "password": "10MMglock",
+      "favorites": [],
+      "sitepref": {},
+      "address": null,
+      "invoiceaddress": null,
+      "zipcode": null,
+      "telephone": null
+    }
+  ]
 }
