@@ -37,9 +37,10 @@ server.post('/api/auth/register', (req, res)=>{
         dataTemplate.name = name;
         
         //todo check if username, name, and email exist
-        const isUserCreated = users.map(user => user.username === username && user.email === email );
+        const isUserCreated = users.find(user => user.username === username && user.email === email );
         console.log(isUserCreated)
-        if(!isUserCreated[0]) {
+        
+        if(!isUserCreated) {
             //check if email is wellformed
             if(!emailRegex.test(email)) {
                 console.log("issues line 44, email does not match the criteria");
@@ -71,6 +72,21 @@ server.post('/api/auth/register', (req, res)=>{
         return res.sendStatus(400);
     }
     
-})
+});
+server.put('/api/auth/useredit/:id', (req, res) => {
+    const userId = req.params.id;
+    const userToModify = json.filter(user => user.id === userId);
+    const {username, password, email, favorites, sitepref, address, invoiceaddress, zipcode, telephone} = req.body;
+    if(username) {
+        //check if username exists
+        const isUserNamedCreated = json.filter(user => user.username === username);
+        if(!isUserName) {
+            userToModify.username = username;
+        }
+    }
+    if(password) {
+        
+    }
+});
 
 server.listen(7575, ()=>{console.log('Server Working at 7575')})

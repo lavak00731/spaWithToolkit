@@ -1,4 +1,4 @@
-import { render, screen, within} from "@testing-library/react";
+import { render, screen, within, waitFor} from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 import '@testing-library/jest-dom';
 import { Products } from "../views/Products";
@@ -19,6 +19,7 @@ describe('Test related to Products Page', () => {
         expect(title).toBeInTheDocument();
     })
     test('Test if Products render 10 products', async() => {
+        
         render(
             <BrowserRouter>
                 <Provider store={store}>
@@ -28,7 +29,10 @@ describe('Test related to Products Page', () => {
         )
         const list = screen.getByTestId('product-list');
         const { findAllByRole } = within(list);
-        const items = await findAllByRole("listitem");       
-        expect(items).toHaveLength(10);
+        const items = await findAllByRole("listitem"); 
+        await waitFor(()=>{
+            expect(items).toHaveLength(10);
+        }, {timeout: 5000, interval: 500})      
+        
     })
 })

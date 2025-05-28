@@ -25,6 +25,32 @@
       "invoiceaddress": null,
       "zipcode": null,
       "telephone": null
+    },
+    {
+      "id": "3",
+      "username": "he-man",
+      "name": "Principe Adams",
+      "email": "heman@greyskull.com",
+      "password": "10MMglock",
+      "favorites": [],
+      "sitepref": {},
+      "address": null,
+      "invoiceaddress": null,
+      "zipcode": null,
+      "telephone": null
+    },
+    {
+      "id": "4",
+      "username": "joggy",
+      "name": "Oso Joggy",
+      "email": "bosque@gmai.com",
+      "password": "mielDUra10",
+      "favorites": [],
+      "sitepref": {},
+      "address": null,
+      "invoiceaddress": null,
+      "zipcode": null,
+      "telephone": null
     }
   ]
 }
