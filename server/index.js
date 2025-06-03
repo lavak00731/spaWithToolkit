@@ -3,6 +3,21 @@ const fs = require('fs');
 const json = require('./users.json');
 const server = express();
 server.use(express.json());
+const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+const passwordRegex = /^(?=(?:.*[A-Z]){2,})(?=.*\d).{8,}$/;
+const dataTemplate = {
+    "id": null,
+    "username": null,
+    "name": null,
+    "email": null,
+    "password": null,
+    "favorites": [],
+    "sitepref": {},
+    "address": null,
+    "invoiceaddress": null,
+    "zipcode": null,
+    "telephone": null
+}
 
 server.post('/api/auth/login', (req, res) => {
     const {user, password} = req.body;
@@ -15,22 +30,8 @@ server.post('/api/auth/login', (req, res) => {
     return res.status(200).json(isLogged)
 });
 server.post('/api/auth/register', (req, res)=>{
-    const {username, name, email, password} = req.body;
-    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-    const passwordRegex = /^(?=(?:.*[A-Z]){2,})(?=.*\d).{8,}$/;
-    const dataTemplate = {
-            "id": null,
-            "username": null,
-            "name": null,
-            "email": null,
-            "password": null,
-            "favorites": [],
-            "sitepref": {},
-            "address": null,
-            "invoiceaddress": null,
-            "zipcode": null,
-            "telephone": null
-        }
+    const {username, name, email, password} = req.body;    
+    
     if(username && name && email && password) {
         const users = json.users;
         dataTemplate.username = username;
@@ -43,14 +44,14 @@ server.post('/api/auth/register', (req, res)=>{
         if(!isUserCreated) {
             //check if email is wellformed
             if(!emailRegex.test(email)) {
-                console.log("issues line 44, email does not match the criteria");
+                console.log("issues line 46, email does not match the criteria");
                 return res.sendStatus(400);
             } 
             dataTemplate.email = email;              
             
             //check if password matches the requeriment of 2 capital letters, minimum 8 characters, and at least one number
             if(!passwordRegex.test(password)) {
-                console.log("issues line 50, password does not match the criteria");
+                console.log("issues line 53, password does not match the criteria");
                 return res.sendStatus(400);
             }
             dataTemplate.password = password;            
@@ -64,7 +65,7 @@ server.post('/api/auth/register', (req, res)=>{
             });
             res.status(201).json(dataTemplate); // 201 = created
         } else {
-            console.log("line 42, user already created");
+            console.log("line 44, user already created");
             return res.sendStatus(400);
         }
     } else {
@@ -75,17 +76,31 @@ server.post('/api/auth/register', (req, res)=>{
 });
 server.put('/api/auth/useredit/:id', (req, res) => {
     const userId = req.params.id;
-    const userToModify = json.filter(user => user.id === userId);
-    const {username, password, email, favorites, sitepref, address, invoiceaddress, zipcode, telephone} = req.body;
+    const userToModify = json.users.find(user => user.id === userId);
+    const {username, password, email, sitepref, address, invoiceaddress, zipcode, telephone} = req.body;
+    if(!userToModify) return res.sendStatus(400);
     if(username) {
         //check if username exists
-        const isUserNamedCreated = json.filter(user => user.username === username);
-        if(!isUserName) {
+        const isUserNamedCreated = json.users.filter(user => user.username === username);
+        if(!isUserNamedCreated) {
             userToModify.username = username;
         }
     }
     if(password) {
-        
+        //check if the password matches
+        if(!passwordRegex.test(password)) {
+            console.log("issues line 91, password does not match the criteria");
+            return res.sendStatus(400);
+        }
+        userToModify.password = password;
+    }
+    if(email) {
+        //check if email is well formed
+        if(!emailRegex.test(email)) {
+            console.log("issue with email format line 99")
+            return res.sendStatus(400);
+        }
+        userToModify.email = email;
     }
 });
 
