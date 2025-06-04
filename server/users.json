@@ -7,23 +7,47 @@
       "email": "eolavaca@gmail.com",
       "password": "RAmbo3107",
       "favorites": [],
-      "sitepref": {},
-      "address": null,
-      "invoiceaddress": null,
-      "zipcode": null,
+      "sitepref": {
+        "darkmode": "false",
+        "isrecievingNotifications": "false"
+      },
+      "address": {
+        "street": null,
+        "zipcode": null,
+        "city": null,
+        "state": null
+      },
+      "invoiceaddress": {
+        "street": null,
+        "zipcode": null,
+        "city": null,
+        "state": null
+      },
       "telephone": null
     },
     {
       "id": "2",
-      "username": "he-man",
+      "username": "he-man2",
       "name": "Principe Adams",
-      "email": "heman@greyskull.com",
+      "email": "scala@gmal.com",
       "password": "10MMglock",
-      "favorites": [],
-      "sitepref": {},
-      "address": null,
-      "invoiceaddress": null,
-      "zipcode": null,
+      "favorites": ["2"],
+      "sitepref": {
+        "darkmode": "false",
+        "isrecievingNotifications": "true"
+      },
+      "address": {
+        "street": null,
+        "zipcode": null,
+        "city": null,
+        "state": null
+      },
+      "invoiceaddress": {
+        "street": null,
+        "zipcode": null,
+        "city": null,
+        "state": null
+      },
       "telephone": null
     },
     {
@@ -33,10 +57,22 @@
       "email": "heman@greyskull.com",
       "password": "10MMglock",
       "favorites": [],
-      "sitepref": {},
-      "address": null,
-      "invoiceaddress": null,
-      "zipcode": null,
+      "sitepref": {
+        "darkmode": "false",
+        "isrecievingNotifications": "false"
+      },
+      "address": {
+        "street": null,
+        "zipcode": null,
+        "city": null,
+        "state": null
+      },
+      "invoiceaddress": {
+        "street": null,
+        "zipcode": null,
+        "city": null,
+        "state": null
+      },
       "telephone": null
     },
     {
@@ -46,10 +82,22 @@
       "email": "bosque@gmai.com",
       "password": "mielDUra10",
       "favorites": [],
-      "sitepref": {},
-      "address": null,
-      "invoiceaddress": null,
-      "zipcode": null,
+      "sitepref": {
+        "darkmode": "false",
+        "isrecievingNotifications": "false"
+      },
+      "address": {
+        "street": null,
+        "zipcode": null,
+        "city": null,
+        "state": null
+      },
+      "invoiceaddress": {
+        "street": null,
+        "zipcode": null,
+        "city": null,
+        "state": null
+      },
       "telephone": null
     }
   ]
