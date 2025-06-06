@@ -5,7 +5,7 @@ const server = express();
 server.use(express.json());
 const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 const passwordRegex = /^(?=(?:.*[A-Z]){2,})(?=.*\d).{8,}$/;
-const zipcodeRegex = /^([A-Z]{1,1})([0-9]{4})([A-Z]{3})$/;
+const zipcodeRegex = /^[A-Z]\d{4}[A-Z]{3}$/;
 const dataTemplate = {
     "id": null,
     "username": null,
@@ -87,7 +87,7 @@ server.put('/api/auth/user/:id', (req, res) => {
        idx = index;
        return  user.id === userId
     });
-    const {username, password, email, sitepref, address, invoiceaddress, zipcode, telephone} = req.body;
+    const {username, password, email, sitepref, address, invoiceaddress, telephone} = req.body;
 
     if(!userToModify) return res.sendStatus(400);
     if(username) {
@@ -120,9 +120,19 @@ server.put('/api/auth/user/:id', (req, res) => {
         return res.sendStatus(400)
     }
     if(address) {
+        console.log(address)
+        //check if street is not empty
+        if(!address.street) {
+            console.log("issue with address street line 124");
+            return res.sendStatus(400);
+        }
         //check if it is a valid zipcode
-        if(!zipcodeRegex.test(zipcode)) {
-            console.log("issue with zip code line 122");
+        if(address.zipcode && !zipcodeRegex.test(address.zipcode)) {
+            console.log("issue with zip code line 128");
+            return res.sendStatus(400)
+        }
+        if(!address.city) {
+             console.log("issue with city line 133");
             return res.sendStatus(400)
         }
         userToModify.address = address;
